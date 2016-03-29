@@ -1,0 +1,38 @@
+{
+  "name": "macaca-electron",
+  "version": "0.1.0",
+  "description": "macaca-electron",
+  "keywords": [
+    "macaca-electron"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xudafeng/macaca-electron.git"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^0.36.7",
+    "macaca-utils": "~0.1.8",
+    "q": "~1.4.1"
+  },
+  "devDependencies": {
+    "co-mocha": "*",
+    "mocha": "*",
+    "should": "*",
+    "jshint": "*",
+    "istanbul": "*",
+    "pre-commit": "1.1.1"
+  },
+  "scripts": {
+    "test": "make test",
+    "jshint": "make jshint"
+  },
+  "pre-commit": [
+    "jshint"
+  ],
+  "homepage": "https://github.com/xudafeng/macaca-electron",
+  "author": "xudafeng",
+  "email": "xudafeng@126.com",
+  "blog": "http://xdf.me",
+  "license": "MIT"
+}
