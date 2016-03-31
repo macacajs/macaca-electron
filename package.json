@@ -13,7 +13,8 @@
   "dependencies": {
     "electron-prebuilt": "^0.36.7",
     "macaca-utils": "~0.1.8",
-    "q": "~1.4.1"
+    "q": "~1.4.1",
+    "xlogger": "^1.0.0"
   },
   "devDependencies": {
     "co-mocha": "*",
