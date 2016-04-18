@@ -8,22 +8,23 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/xudafeng/macaca-electron.git"
+    "url": "git://github.com/macacajs/macaca-electron.git"
   },
   "dependencies": {
-    "electron-prebuilt": "^0.36.7",
+    "co": "^4.6.0",
+    "driver-base": "^0.1.0",
+    "electron-prebuilt": "^0.37.6",
     "macaca-utils": "~0.1.8",
-    "q": "^1.4.1",
+    "selenium-atoms": "^1.0.0",
     "webdriver-dfn-error-code": "^1.0.3",
     "xlogger": "^1.0.0"
   },
   "devDependencies": {
-    "co-mocha": "*",
-    "mocha": "*",
-    "should": "*",
-    "jshint": "*",
     "istanbul": "*",
-    "pre-commit": "1.1.1"
+    "jshint": "*",
+    "mocha": "*",
+    "pre-commit": "1.1.1",
+    "should": "*"
   },
   "scripts": {
     "test": "make test",
@@ -32,9 +33,6 @@
   "pre-commit": [
     "jshint"
   ],
-  "homepage": "https://github.com/xudafeng/macaca-electron",
-  "author": "xudafeng",
-  "email": "xudafeng@126.com",
-  "blog": "http://xdf.me",
+  "homepage": "https://github.com/macacajs/macaca-electron",
   "license": "MIT"
 }
