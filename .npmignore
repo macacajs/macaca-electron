@@ -14,3 +14,4 @@ coverage/
 *.swl
 *.swm
 .sw*
+logs/
