@@ -1,9 +1,10 @@
 {
   "name": "macaca-electron",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "macaca-electron",
   "keywords": [
-    "macaca-electron"
+    "electron",
+    "macaca"
   ],
   "main": "index.js",
   "repository": {
