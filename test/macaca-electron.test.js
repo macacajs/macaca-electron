@@ -44,7 +44,7 @@ describe('unit testing', function() {
       yield driver.get('file://' + path.resolve(__dirname, 'webpages/1.html'));
       yield driver.maximize();
       var html = yield driver.getSource();
-      html.should.match(/^<html/)
+      html.should.match(/^<html/);
     }));
 
     it('get title', co.wrap(function *() {
@@ -74,7 +74,7 @@ describe('unit testing', function() {
 
       var bgColor = yield driver.getComputedCss(button.ELEMENT, 'background-color');
       bgColor.should.be.equal('rgb(255, 255, 255)');
-    }))
+    }));
 
     it('click button', co.wrap(function *() {
       var button = yield driver.findElement('id', 'button-1');
