@@ -6,7 +6,7 @@
     "electron",
     "macaca"
   ],
-  "main": "index.js",
+  "main": "./lib/macaca-electron",
   "repository": {
     "type": "git",
     "url": "git://github.com/macacajs/macaca-electron.git"
