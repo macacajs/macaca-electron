@@ -21,6 +21,7 @@
     "xlogger": "^1.0.0"
   },
   "devDependencies": {
+    "co-mocha": "^1.1.2",
     "istanbul": "*",
     "jshint": "*",
     "mocha": "*",
