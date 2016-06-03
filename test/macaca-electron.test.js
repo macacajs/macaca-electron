@@ -39,6 +39,10 @@ describe('unit testing', function() {
       title.should.be.equal('Document 1');
     }));
 
+    it('set window size', co.wrap(function *() {
+      yield driver.setWindowSize(null, 600, 600);
+    }));
+
     it('screenshot', co.wrap(function *() {
       var base64 = yield driver.getScreenshot();
       base64.should.match(/^[0-9a-z\/+=]+$/i);
