@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-back.html">back</a></li><li><a href="module-execute.html">execute</a></li><li><a href="module-get.html">get</a></li><li><a href="module-getScreenshot.html">getScreenshot</a></li><li><a href="module-getSource.html">getSource</a></li><li><a href="module-maximize.html">maximize</a></li><li><a href="module-refresh.html">refresh</a></li><li><a href="module-setWindowSize.html">setWindowSize</a></li><li><a href="module-title.html">title</a></li><li><a href="module-url.html">url</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-back.html">back</a></li><li><a href="module-clearText.html">clearText</a></li><li><a href="module-click.html">click</a></li><li><a href="module-execute.html">execute</a></li><li><a href="module-findElement.html">findElement</a></li><li><a href="module-forward.html">forward</a></li><li><a href="module-get.html">get</a></li><li><a href="module-getAttribute.html">getAttribute</a></li><li><a href="module-getComputedCss.html">getComputedCss</a></li><li><a href="module-getScreenshot.html">getScreenshot</a></li><li><a href="module-getSource.html">getSource</a></li><li><a href="module-getText.html">getText</a></li><li><a href="module-isDisplayed.html">isDisplayed</a></li><li><a href="module-maximize.html">maximize</a></li><li><a href="module-refresh.html">refresh</a></li><li><a href="module-setValue.html">setValue</a></li><li><a href="module-setWindowSize.html">setWindowSize</a></li><li><a href="module-title.html">title</a></li><li><a href="module-url.html">url</a></li></ul>
 </nav>
 
 <div id="main">
@@ -144,11 +144,26 @@ const findElementOrElements = function *(strategy, selector, ctx, many) {
 
 const controllers = {};
 
+
+/**
+ * Click on an element.
+ *
+ * @module click
+ * @returns {Promise}
+ */
 controllers.click = function *(elementId) {
   const atomsElement = convertElement2Atoms.call(this, elementId);
   return yield sendJSCommand.call(this, 'click', [atomsElement]);
 };
 
+/**
+ * Search for an element on the page, starting from the document root.
+ * @module findElement
+ * @param {string} strategy The type
+ * @param {string} using The locator strategy to use.
+ * @param {string} value The search target.
+ * @returns {Promise.&lt;Element>}
+ */
 controllers.findElement = function *(strategy, selector, ctx) {
   return yield findElementOrElements.call(this, strategy, selector, ctx, false);
 };
@@ -157,27 +172,59 @@ controllers.findElements = function *(strategy, selector, ctx) {
   return yield findElementOrElements.call(this, strategy, selector, ctx, true);
 };
 
+/**
+ * Returns the visible text for the element.
+ *
+ * @module getText
+ * @returns {Promise.&lt;string>}
+ */
 controllers.getText = function *(elementId) {
   const atomsElement = convertElement2Atoms.call(this, elementId);
   return yield sendJSCommand.call(this, 'get_text', [atomsElement]);
 };
 
+/**
+ * Clear a TEXTAREA or text INPUT element's value.
+ *
+ * @module clearText
+ * @returns {Promise.&lt;string>}
+ */
 controllers.clearText = function *(elementId) {
   const atomsElement = convertElement2Atoms.call(this, elementId);
   return yield sendJSCommand.call(this, 'clear', [atomsElement]);
 };
 
+/**
+ * Set element's value.
+ *
+ * @module setValue
+ * @param elementId
+ * @param value
+ * @returns {Promise.&lt;string>}
+ */
 controllers.setValue = function *(elementId, value) {
   const atomsElement = convertElement2Atoms.call(this, elementId);
   yield sendJSCommand.call(this, 'click', [atomsElement]);
   return yield sendJSCommand.call(this, 'type', [atomsElement, value]);
 };
 
+/**
+ * Determine if an element is currently displayed.
+ *
+ * @module isDisplayed
+ * @returns {Promise.&lt;string>}
+ */
 controllers.isDisplayed = function *(elementId) {
   const atomsElement = convertElement2Atoms.call(this, elementId);
   return yield sendJSCommand.call(this, 'is_displayed', [atomsElement]);
 };
 
+/**
+ * Get the value of an element's attribute.
+ *
+ * @module getAttribute
+ * @returns {Promise.&lt;string>}
+ */
 controllers.getAttribute = function *(elementId, attrName) {
   const atomsElement = convertElement2Atoms.call(this, elementId);
   return yield sendJSCommand.call(this, 'get_attribute_value', [atomsElement, attrName]);
@@ -244,6 +291,12 @@ controllers.get = function *(url) {
   return yield sendCommand.call(this, 'get', { url: url });
 };
 
+/**
+ * Navigate forwards in the browser history, if possible.
+ *
+ * @module forward
+ * @returns {Promise.&lt;string>}
+ */
 controllers.forward = function *() {
   throw new errors.NotImplementedError();
 };
@@ -319,6 +372,12 @@ controllers.getScreenshot = function *() {
   return yield sendCommand.call(this, 'getScreenshot');
 };
 
+/**
+ * Query the value of an element's computed CSS property.
+ *
+ * @module getComputedCss
+ * @returns {Promise.&lt;string>}
+ */
 controllers.getComputedCss = function *(elementId, propertyName) {
   return yield this.execute('return window.getComputedStyle(arguments[0], null).getPropertyValue(arguments[1]);', [convertElement2Atoms.call(this, elementId), propertyName]);
 };
@@ -336,7 +395,7 @@ module.exports = controllers;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Jun 06 2016 11:31:36 GMT+0800 (CST) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Jun 06 2016 12:20:01 GMT+0800 (CST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
