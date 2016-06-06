@@ -19,6 +19,12 @@ travis: install
 		$(REQUIRED) \
 		$(TESTS) \
 		--bail
+server:
+	@${npm_bin}/startserver -s
+clean:
+	@rm -rf ./docs
+doc: clean
+	@${npm_bin}/jsdoc -c ./jsdoc.json
 jshint:
 	@${npm_bin}/jshint .
 .PHONY: test
