@@ -55,4 +55,5 @@ co(function *() {
 
 ```
 
-[More API](//macacajs.github.io/macaca-electron/docs/)
+- [sample macaca-electron-screenshot](https://github.com/xudafeng/macaca-electron-screenshot)
+- [More API](//macacajs.github.io/macaca-electron/docs/)
