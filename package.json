@@ -1,0 +1,40 @@
+{
+  "name": "macaca-electron",
+  "version": "1.0.6",
+  "description": "macaca-electron",
+  "keywords": [
+    "electron",
+    "macaca"
+  ],
+  "main": "./lib/macaca-electron",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/macacajs/macaca-electron.git"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "driver-base": "^0.1.0",
+    "electron-prebuilt": "^0.37.6",
+    "macaca-utils": "~0.1.8",
+    "selenium-atoms": "^1.0.0",
+    "webdriver-dfn-error-code": "^1.0.3",
+    "xlogger": "^1.0.0"
+  },
+  "devDependencies": {
+    "co-mocha": "^1.1.2",
+    "istanbul": "*",
+    "jshint": "*",
+    "mocha": "*",
+    "pre-commit": "1.1.1",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "make test",
+    "jshint": "make jshint"
+  },
+  "pre-commit": [
+    "jshint"
+  ],
+  "homepage": "https://github.com/macacajs/macaca-electron",
+  "license": "MIT"
+}
