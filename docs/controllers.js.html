@@ -1,4 +1,44 @@
-'use strict';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>controllers.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-back.html">back</a></li><li><a href="module-execute.html">execute</a></li><li><a href="module-get.html">get</a></li><li><a href="module-getScreenshot.html">getScreenshot</a></li><li><a href="module-getSource.html">getSource</a></li><li><a href="module-maximize.html">maximize</a></li><li><a href="module-refresh.html">refresh</a></li><li><a href="module-setWindowSize.html">setWindowSize</a></li><li><a href="module-title.html">title</a></li><li><a href="module-url.html">url</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">controllers.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
 const co = require('co');
 const getAtom = require('selenium-atoms').getByName;
@@ -33,7 +73,7 @@ const sendCommand = function *(type, args) {
     return value;
   } else {
     const errorName = getErrorByCode(code);
-    const errorMsg = value && value.message;
+    const errorMsg = value &amp;&amp; value.message;
     throw new errors[errorName](errorMsg);
   }
 };
@@ -44,7 +84,7 @@ const sendJSCommand = function *(atom, args) {
 };
 
 const convertAtoms2Element = function(atoms) {
-  const atomsId = atoms && atoms.ELEMENT;
+  const atomsId = atoms &amp;&amp; atoms.ELEMENT;
 
   if (!atomsId) {
     return null;
@@ -147,7 +187,7 @@ controllers.getAttribute = function *(elementId, attrName) {
  * Get the current page title.
  *
  * @module title
- * @returns {Promise.<Object>}
+ * @returns {Promise.&lt;Object>}
  */
 controllers.title = function *() {
   return yield this.execute('return document.title;');
@@ -159,7 +199,7 @@ controllers.title = function *() {
  * @module execute
  * @param code script
  * @param [args] script argument array
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.execute = function *(script, args) {
   if (!args) {
@@ -187,7 +227,7 @@ controllers.execute = function *(script, args) {
  * Retrieve the URL of the current page.
  *
  * @module url
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.url = function *() {
   return yield sendCommand.call(this, 'url');
@@ -198,7 +238,7 @@ controllers.url = function *() {
  *
  * @module get
  * @param url get a new url.
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.get = function *(url) {
   return yield sendCommand.call(this, 'get', { url: url });
@@ -212,7 +252,7 @@ controllers.forward = function *() {
  * Navigate backwards in the browser history, if possible.
  *
  * @module back
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.back = function *() {
   return yield this.execute('history.back()');
@@ -227,7 +267,7 @@ controllers.getWindows = function *() {
  *
  * @module setWindowSize
  * @param [handle] window handle to set size for (optional, default: 'current')
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.setWindowSize = function *(windowHandle, width, height) {
   return yield sendCommand.call(this, 'setWindowSize', {
@@ -240,7 +280,7 @@ controllers.setWindowSize = function *(windowHandle, width, height) {
  *
  * @module maximize
  * @param handle window handle
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.maximize = function *(windowHandle) {
   return yield sendCommand.call(this, 'maximize', {
@@ -252,7 +292,7 @@ controllers.maximize = function *(windowHandle) {
  * Refresh the current page.
  *
  * @module refresh
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.refresh = function *() {
   return yield this.execute('location.reload()');
@@ -262,7 +302,7 @@ controllers.refresh = function *() {
  * Get the current page source.
  *
  * @module getSource
- * @returns {Promise.<string>}
+ * @returns {Promise.&lt;string>}
  */
 controllers.getSource = function *() {
   const cmd = 'return document.getElementsByTagName("html")[0].outerHTML';
@@ -273,7 +313,7 @@ controllers.getSource = function *() {
  * Take a screenshot of the current page.
  *
  * @module getScreenshot
- * @returns {Promise.<string>} The screenshot as a base64 encoded PNG.
+ * @returns {Promise.&lt;string>} The screenshot as a base64 encoded PNG.
  */
 controllers.getScreenshot = function *() {
   return yield sendCommand.call(this, 'getScreenshot');
@@ -284,3 +324,22 @@ controllers.getComputedCss = function *(elementId, propertyName) {
 };
 
 module.exports = controllers;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Jun 06 2016 11:21:55 GMT+0800 (CST) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

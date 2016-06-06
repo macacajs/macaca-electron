@@ -23,10 +23,13 @@
   "devDependencies": {
     "co-mocha": "^1.1.2",
     "istanbul": "*",
+    "jsdoc": "^3.4.0",
     "jshint": "*",
+    "minami": "^1.1.1",
     "mocha": "*",
     "pre-commit": "1.1.1",
-    "should": "*"
+    "should": "*",
+    "startserver": "^1.2.3"
   },
   "scripts": {
     "test": "make test",
