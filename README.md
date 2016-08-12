@@ -37,8 +37,22 @@ const Electron = require('macaca-electron');
 const electron = new Electron();
 
 co(function *() {
+  /**
+    default options
+    {
+      show: true,
+      alwaysOnTop: false,
+      x: 0,
+      y: 0,
+      width: 800,
+      height: 600,
+      webPreferences: {
+        nodeIntegration: false
+      }
+    }
+  */
   yield electron.startDevice({
-    window: false // in silence
+    show: false // in silence
   });
 
   yield electron.maximize();
