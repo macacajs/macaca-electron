@@ -19,7 +19,9 @@ describe('unit testing', function() {
     var driver = new Electron();
 
     before(function *() {
-      yield driver.startDevice({});
+      yield driver.startDevice({
+        show: false
+      });
     });
 
     it('electron device should be ok', () => {
