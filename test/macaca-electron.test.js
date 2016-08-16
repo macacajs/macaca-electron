@@ -29,7 +29,7 @@ describe('unit testing', function() {
       driver.should.be.ok;
     });
 
-    it('visit runnerProcess', () => {
+    it('access runnerProcess', () => {
       (driver.runnerProcess instanceof ChildProcess).should.be.ok;
     });
 
