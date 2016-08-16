@@ -4,6 +4,7 @@ const path = require('path');
 
 const _ = require('../lib/helper');
 const Electron = require('../lib/macaca-electron');
+const ChildProcess = require('child_process').ChildProcess;
 
 describe('unit testing', function() {
   this.timeout(5 * 60 * 1000);
@@ -26,6 +27,10 @@ describe('unit testing', function() {
 
     it('electron device should be ok', () => {
       driver.should.be.ok;
+    });
+
+    it('visit runnerProcess', () => {
+      (driver.runnerProcess instanceof ChildProcess).should.be.ok;
     });
 
     it('get should be ok', function *() {
