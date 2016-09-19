@@ -9,6 +9,6 @@ Makefile
 .jshintignore
 coverage/
 test/
-*.sw*
 logs/
+*.sw*
 *.un~
