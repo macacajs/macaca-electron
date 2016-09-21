@@ -1,10 +1,10 @@
 'use strict';
 
 const path = require('path');
+const ChildProcess = require('child_process').ChildProcess;
 
 const _ = require('../lib/helper');
 const Electron = require('../lib/macaca-electron');
-const ChildProcess = require('child_process').ChildProcess;
 
 describe('unit testing', function() {
   this.timeout(5 * 60 * 1000);
