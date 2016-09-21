@@ -104,7 +104,17 @@ describe('unit testing', function() {
       yield driver.click(link.ELEMENT);
       yield driver.maximize();
       yield _.sleep(3000);
-      yield driver.getWindows();
+    });
+
+    it('window handlers', function *() {
+      var windows = yield driver.getWindows();
+      windows.length.should.be.equal(2);
+      yield driver.setWindow(windows[1]);
+      var title = yield driver.title();
+      title.should.be.equal('Document 3');
+      yield driver.setWindow(windows[0]);
+      title = yield driver.title();
+      title.should.be.equal('Document 1');
     });
 
     after(function *() {
