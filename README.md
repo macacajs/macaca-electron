@@ -27,6 +27,8 @@ $ npm i macaca-electron -g
 
 ## Notice
 
+### window.alert
+
 Macaca disables `window.alert`, `window.prompt`, `window.confirm` from popping up by default, and you can override by `execute`.
 
 ## Standalone usage
