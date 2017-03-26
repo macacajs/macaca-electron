@@ -21,13 +21,13 @@
 
 ## Installment
 
-```shell
-$ npm i macaca-electron --save
+``` bash
+$ npm i macaca-electron -g
 ```
 
 ## Standalone usage
 
-```javascript
+``` javascript
 
 const co = require('co');
 const fs = require('fs');
@@ -69,5 +69,5 @@ co(function *() {
 
 ```
 
-- [sample macaca-electron-screenshot](//github.com/xudafeng/macaca-electron-screenshot)
+- [sample macaca-electron-screenshot](//github.com/macaca-sample/macaca-electron-screenshot)
 - [More API](//macacajs.github.io/macaca-electron/docs/)
