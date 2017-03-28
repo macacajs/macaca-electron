@@ -76,4 +76,4 @@ co(function *() {
 ```
 
 - [sample macaca-electron-screenshot](//github.com/macaca-sample/macaca-electron-screenshot)
-- [More API](//macacajs.github.io/macaca-electron/docs/)
+- [More API](//macacajs.github.io/macaca-electron/)
