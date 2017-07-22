@@ -11,26 +11,28 @@ describe('unit testing', function() {
 
   describe('base', function() {
     it('should be ok', function() {
-      Electron.should.be.ok;
+      Electron.should.be.ok();
     });
   });
 
   describe('methods testing', function() {
 
     var driver = new Electron();
+    var customUserAgent = 'custom userAgent';
 
     before(function *() {
       yield driver.startDevice({
-        show: false
+        show: false,
+        userAgent: customUserAgent
       });
     });
 
     it('electron device should be ok', () => {
-      driver.should.be.ok;
+      driver.should.be.ok();
     });
 
     it('access runnerProcess', () => {
-      (driver.runnerProcess instanceof ChildProcess).should.be.ok;
+      (driver.runnerProcess instanceof ChildProcess).should.be.ok();
     });
 
     it('get should be ok', function *() {
@@ -38,6 +40,8 @@ describe('unit testing', function() {
       yield driver.maximize();
       var html = yield driver.getSource();
       html.should.match(/^<html/);
+      var uesrAgent = yield driver.execute('return navigator.userAgent');
+      uesrAgent.should.be.equal(customUserAgent);
     });
 
     it('get title', function *() {
@@ -108,7 +112,7 @@ describe('unit testing', function() {
 
     it('window handlers', function *() {
       var windows = yield driver.getWindows();
-      windows.length.should.be.equal(2);
+      windows.length.should.be.equal(3);
       yield driver.setWindow(windows[1]);
       var title = yield driver.title();
       title.should.be.equal('Document 3');
