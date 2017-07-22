@@ -52,6 +52,7 @@ co(function *() {
       y: 0,
       width: 800,
       height: 600,
+      userAgent: 'userAgent string',
       webPreferences: {
         nodeIntegration: false
       }
