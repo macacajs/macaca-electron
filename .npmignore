@@ -10,5 +10,6 @@ Makefile
 coverage/
 test/
 logs/
+docs/
 *.sw*
 *.un~
