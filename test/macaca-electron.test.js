@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const ChildProcess = require('child_process').ChildProcess;
 
 const _ = require('../lib/helper');
 const Electron = require('../lib/macaca-electron');
@@ -29,10 +28,6 @@ describe('unit testing', function() {
 
     it('electron device should be ok', () => {
       driver.should.be.ok();
-    });
-
-    it('access runnerProcess', () => {
-      (driver.runnerProcess instanceof ChildProcess).should.be.ok();
     });
 
     it('get should be ok', function *() {
