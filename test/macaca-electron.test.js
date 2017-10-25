@@ -5,6 +5,8 @@ const path = require('path');
 const _ = require('../lib/helper');
 const Electron = require('../lib/macaca-electron');
 
+const pkg = require('../package');
+
 describe('unit testing', function() {
   this.timeout(5 * 60 * 1000);
 
@@ -31,7 +33,7 @@ describe('unit testing', function() {
     });
 
     it('get should be ok', function *() {
-      yield driver.get('file://' + path.resolve(__dirname, 'webpages/1.html'));
+      yield driver.get(`file://${path.resolve(__dirname, 'webpages/1.html')}`);
       yield driver.maximize();
       var html = yield driver.getSource();
       html.should.match(/^<html/);
@@ -114,6 +116,23 @@ describe('unit testing', function() {
       yield driver.setWindow(windows[0]);
       title = yield driver.title();
       title.should.be.equal('Document 1');
+    });
+
+    it('cookie handlers', function *() {
+      yield driver.deleteAllCookies();
+      var cookies = yield driver.getAllCookies();
+      cookies.length.should.be.equal(0);
+      var cookie = {
+        url: pkg.homepage,
+        name: pkg.name,
+        value: pkg.name
+      };
+      yield driver.addCookie(cookie);
+      const res = yield driver.getNamedCookie(cookie.name);
+      res.length.should.be.equal(1);
+      yield driver.deleteAllCookies();
+      cookies = yield driver.getAllCookies();
+      cookies.length.should.be.equal(0);
     });
 
     after(function *() {
