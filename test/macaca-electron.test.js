@@ -8,6 +8,8 @@ const Electron = require('../lib/macaca-electron');
 const pkg = require('../package');
 
 describe('unit testing', function() {
+  const WIDTH = 600;
+  const HEIGHT = 600;
   this.timeout(5 * 60 * 1000);
 
   describe('base', function() {
@@ -47,7 +49,13 @@ describe('unit testing', function() {
     });
 
     it('set window size', function *() {
-      yield driver.setWindowSize(null, 600, 600);
+      yield driver.setWindowSize(null, WIDTH, HEIGHT);
+    });
+
+    it('get window size', function *() {
+      const size = yield driver.getWindowSize();
+      size.width.should.be.equal(WIDTH);
+      size.height.should.be.equal(HEIGHT);
     });
 
     it('screenshot', function *() {
