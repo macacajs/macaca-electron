@@ -21,7 +21,7 @@
 
 ## Installment
 
-``` bash
+```bash
 $ npm i macaca-electron -g
 ```
 
@@ -33,7 +33,7 @@ Macaca disables `window.alert`, `window.prompt`, `window.confirm` from popping u
 
 ## Standalone usage
 
-``` javascript
+```javascript
 
 const co = require('co');
 const fs = require('fs');
