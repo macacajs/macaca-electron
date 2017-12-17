@@ -35,7 +35,8 @@
     "test": "istanbul cover `npm bin`/_mocha",
     "lint": "jshint .",
     "doc": "npm run clean && jsdoc -c ./jsdoc.json",
-    "clean": "rm -rf ./docs"
+    "clean": "rm -rf ./docs",
+    "ci": "npm run lint && npm run test"
   },
   "pre-commit": [
     "lint"
