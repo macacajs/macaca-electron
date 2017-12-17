@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 7
+  - 8
 addons:
   apt:
     packages:
@@ -10,6 +10,7 @@ install:
   - Xvfb :99 -screen 0 1366x768x24 > /dev/null 2>&1 &
 sudo: false
 script:
-  - make travis
+  - npm i
+  - npm run test
 after_script:
   - npm install coveralls@2 && cat ./coverage/lcov.info | coveralls
