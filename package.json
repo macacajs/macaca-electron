@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "co-mocha": "^1.1.2",
+    "git-contributor": "^1.0.3",
     "istanbul": "^0.4.5",
     "jsdoc": "^3.4.0",
     "jshint": "*",
@@ -36,7 +37,8 @@
     "lint": "jshint .",
     "doc": "npm run clean && jsdoc -c ./jsdoc.json",
     "clean": "rm -rf ./docs",
-    "ci": "npm run lint && npm run test"
+    "ci": "npm run lint && npm run test",
+    "contributor": "git-contributor"
   },
   "pre-commit": [
     "lint"
