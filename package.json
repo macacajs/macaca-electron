@@ -1,6 +1,6 @@
 {
   "name": "macaca-electron",
-  "version": "1.1.19",
+  "version": "2.0.0",
   "description": "macaca electron driver",
   "keywords": [
     "electron",
@@ -14,9 +14,9 @@
   "dependencies": {
     "co": "^4.6.0",
     "driver-base": "^0.1.0",
-    "electron": "^1.7.10",
+    "electron": "^2.0.2",
     "macaca-utils": "~1.0.0",
-    "selenium-atoms": "~1.0.1",
+    "selenium-atoms": "~1.0.3",
     "webdriver-dfn-error-code": "^1.0.3",
     "xlogger": "^1.0.0"
   },
