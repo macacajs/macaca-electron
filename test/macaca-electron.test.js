@@ -2,7 +2,7 @@
 
 const Electron = require('../lib/macaca-electron');
 
-describe('macaca-electron', function() {
+describe('test/macaca-electron.test.js', function() {
   this.timeout(5 * 60 * 1000);
 
   describe('base', function() {

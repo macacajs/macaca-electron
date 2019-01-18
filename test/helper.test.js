@@ -2,7 +2,7 @@
 
 const _ = require('../lib/helper');
 
-describe('helper', function() {
+describe('test/helper.test.js', function() {
   it('wait for condition successfully', function *() {
     const start = Date.now();
     const sampleFn = () => {

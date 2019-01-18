@@ -1,13 +1,14 @@
 'use strict';
 
 const path = require('path');
+const assert = require('assert');
 
 const _ = require('../lib/helper');
 const Electron = require('../lib/macaca-electron');
 
 const pkg = require('../package');
 
-describe('controllers', function() {
+describe('test/controllers.test.js', function() {
   const WIDTH = 600;
   const HEIGHT = 600;
   this.timeout(5 * 60 * 1000);
@@ -28,9 +29,9 @@ describe('controllers', function() {
       yield driver.get(`file://${path.resolve(__dirname, 'webpages/1.html')}`);
       yield driver.maximize();
       var html = yield driver.getSource();
-      html.should.match(/^<html/);
+      assert(html.includes(('<html')));
       var uesrAgent = yield driver.execute('return navigator.userAgent');
-      uesrAgent.should.be.equal(customUserAgent);
+      assert.equal(uesrAgent, customUserAgent);
     });
 
     it('get title', function *() {
