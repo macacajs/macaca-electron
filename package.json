@@ -27,6 +27,7 @@
     "jshint": "*",
     "minami": "^1.1.1",
     "mocha": "^4.0.1",
+    "nyc": "^13.1.0",
     "pre-commit": "*",
     "should": "*"
   },
