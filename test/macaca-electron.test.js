@@ -18,6 +18,47 @@ describe('unit testing', function() {
     });
   });
 
+  describe('helper', function() {
+    it('wait for condition successfully', function *() {
+      const start = Date.now();
+      const sampleFn = () => {
+        const now = Date.now();
+        if (now - start >= 200) {
+          return new Promise(function(res, _) {
+            res(true);
+          });
+        } else {
+          return new Promise(function(_, rej) {
+            rej(false);
+          });
+        }
+      };
+
+      return _.waitForCondition(sampleFn, 500, 100).should.be.fulfilled();
+    });
+
+    it('wait for condition unsuccessfully', function *() {
+      const sampleFn = () => {
+        return new Promise(function(_, rej) {
+          rej(false);
+        });
+      };
+
+      return _.waitForCondition(sampleFn, 100, 500).should.be.rejected();
+    });
+
+    it('wait for condition returning false', function *() {
+      const sampleFn = () => {
+        return new Promise(function(res, _) {
+          res(false);
+        });
+      };
+
+      return _.waitForCondition(sampleFn, 100, 500).should.be.rejected();
+    });
+
+  });
+
   describe('methods testing', function() {
 
     var driver = new Electron();
@@ -32,6 +73,22 @@ describe('unit testing', function() {
 
     it('electron device should be ok', () => {
       driver.should.be.ok();
+    });
+
+    it('get runner process', () => {
+      const runnerProcess = driver.runnerProcess;
+      runnerProcess.should.be.ok();
+    });
+
+    it('check whitelist', () => {
+      const context = {url: '/'};
+      const iswhiteList = driver.whiteList(context);
+      iswhiteList.should.be.false();
+    });
+
+    it('is not proxy', () => {
+      const isProxy = driver.isProxy();
+      isProxy.should.be.false();
     });
 
     it('get should be ok', function *() {
