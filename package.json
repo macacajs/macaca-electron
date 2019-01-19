@@ -23,17 +23,16 @@
   "devDependencies": {
     "co-mocha": "^1.1.2",
     "git-contributor": "^1.0.7",
-    "istanbul": "^0.4.5",
     "jsdoc": "^3.4.0",
     "jshint": "*",
     "minami": "^1.1.1",
     "mocha": "^4.0.1",
+    "nyc": "^13.1.0",
     "pre-commit": "*",
-    "should": "*",
-    "startserver": "^1.2.3"
+    "should": "*"
   },
   "scripts": {
-    "test": "istanbul cover `npm bin`/_mocha",
+    "test": "nyc --reporter=lcov --reporter=text mocha",
     "lint": "jshint .",
     "doc": "npm run clean && jsdoc -c ./jsdoc.json",
     "clean": "rm -rf ./docs",
