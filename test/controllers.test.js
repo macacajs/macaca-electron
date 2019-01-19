@@ -25,7 +25,7 @@ describe('test/controllers.test.js', function() {
       });
     });
 
-    it('get should be ok', function *() {
+    it('get is ok', function *() {
       yield driver.get(`file://${path.resolve(__dirname, 'webpages/1.html')}`);
       yield driver.maximize();
       var html = yield driver.getSource();
@@ -36,7 +36,7 @@ describe('test/controllers.test.js', function() {
 
     it('get title', function *() {
       var title = yield driver.title();
-      title.should.be.equal('Document 1');
+      assert.equal(title, 'Document 1');
     });
 
     it('set window size', function *() {
@@ -45,13 +45,13 @@ describe('test/controllers.test.js', function() {
 
     it('get window size', function *() {
       const size = yield driver.getWindowSize();
-      size.width.should.be.equal(WIDTH);
-      size.height.should.be.equal(HEIGHT);
+      assert.equal(size.width, WIDTH);
+      assert.equal(size.height, HEIGHT);
     });
 
     it('screenshot', function *() {
       var base64 = yield driver.getScreenshot();
-      base64.should.match(/^[0-9a-z\/+=]+$/i);
+      assert.equal(/^[0-9a-z\/+=]+$/i.test(base64), true);
     });
 
     it('set input value', function *() {
@@ -60,17 +60,17 @@ describe('test/controllers.test.js', function() {
       yield driver.clearText(input.ELEMENT);
       yield driver.setValue(input.ELEMENT, 'macaca');
       var style = yield driver.getComputedCss(input.ELEMENT, 'display');
-      style.should.be.equal('inline-block');
+      assert.equal(style, 'inline-block');
       yield _.sleep(500);
     });
 
     it('element attr', function *() {
       var button = yield driver.findElement('id', 'button-1');
       var buttonIsDiaplayed = yield driver.isDisplayed(button.ELEMENT);
-      buttonIsDiaplayed.should.be.true;
+      assert.equal(buttonIsDiaplayed, true);
 
       var bgColor = yield driver.getComputedCss(button.ELEMENT, 'background-color');
-      bgColor.should.be.equal('rgb(255, 255, 255)');
+      assert.equal(bgColor, 'rgb(255, 255, 255)');
     });
 
     it('click button', function *() {
@@ -79,7 +79,7 @@ describe('test/controllers.test.js', function() {
       yield _.sleep(300);
       var box = yield driver.findElement('id', 'target');
       var boxText = yield driver.getText(box.ELEMENT);
-      boxText.should.be.equal('macaca');
+      assert.equal(boxText, 'macaca');
     });
 
     it('click link', function *() {
@@ -87,7 +87,7 @@ describe('test/controllers.test.js', function() {
       yield driver.click(link.ELEMENT);
       yield _.sleep(1000);
       var title = yield driver.title();
-      title.should.be.equal('Document 2');
+      assert.equal(title, 'Document 2');
     });
 
     it('history back', function *() {
@@ -96,7 +96,7 @@ describe('test/controllers.test.js', function() {
       yield driver.refresh();
       yield _.sleep(1000);
       var title = yield driver.title();
-      title.should.be.equal('Document 1');
+      assert.equal(title, 'Document 1');
     });
 
     it('open in new window', function *() {
@@ -108,19 +108,19 @@ describe('test/controllers.test.js', function() {
 
     it('window handlers', function *() {
       var windows = yield driver.getWindows();
-      windows.length.should.be.equal(3);
+      assert.equal(windows.length, 3);
       yield driver.setWindow(windows[1]);
       var title = yield driver.title();
-      title.should.be.equal('Document 3');
+      assert.equal(title, 'Document 3');
       yield driver.setWindow(windows[0]);
       title = yield driver.title();
-      title.should.be.equal('Document 1');
+      assert.equal(title, 'Document 1');
     });
 
     it('cookie handlers', function *() {
       yield driver.deleteAllCookies();
       var cookies = yield driver.getAllCookies();
-      cookies.length.should.be.equal(0);
+      assert.equal(cookies.length, 0);
       var cookie = {
         url: pkg.homepage,
         name: pkg.name,
@@ -128,10 +128,10 @@ describe('test/controllers.test.js', function() {
       };
       yield driver.addCookie(cookie);
       const res = yield driver.getNamedCookie(cookie.name);
-      res.length.should.be.equal(1);
+      assert.equal(res.length, 1);
       yield driver.deleteAllCookies();
       cookies = yield driver.getAllCookies();
-      cookies.length.should.be.equal(0);
+      assert.equal(cookies.length, 0);
     });
 
     after(function *() {

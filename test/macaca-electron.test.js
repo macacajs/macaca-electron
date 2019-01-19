@@ -1,13 +1,14 @@
 'use strict';
 
+const assert = require('assert');
 const Electron = require('../lib/macaca-electron');
 
 describe('test/macaca-electron.test.js', function() {
   this.timeout(5 * 60 * 1000);
 
   describe('base', function() {
-    it('should be ok', function() {
-      Electron.should.be.ok();
+    it('is ok', function() {
+      assert.ok(Electron);
     });
   });
 
@@ -22,24 +23,24 @@ describe('test/macaca-electron.test.js', function() {
       });
     });
 
-    it('electron device should be ok', () => {
-      driver.should.be.ok();
+    it('electron device is ok', () => {
+      assert.ok(driver);
     });
 
     it('get runner process', () => {
       const runnerProcess = driver.runnerProcess;
-      runnerProcess.should.be.ok();
+      assert.ok(runnerProcess);
     });
 
     it('check whitelist', () => {
       const context = {url: '/'};
       const iswhiteList = driver.whiteList(context);
-      iswhiteList.should.be.false();
+      assert.equal(iswhiteList, false);
     });
 
     it('is not proxy', () => {
       const isProxy = driver.isProxy();
-      isProxy.should.be.false();
+      assert.equal(isProxy, false);
     });
 
     after(function *() {
