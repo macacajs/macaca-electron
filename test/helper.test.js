@@ -1,9 +1,10 @@
 'use strict';
 
+const assert = require('assert');
 const _ = require('../lib/helper');
 
 describe('test/helper.test.js', function() {
-  it('wait for condition successfully', function *() {
+  it('wait for condition successfully', function () {
     const start = Date.now();
     const sampleFn = () => {
       const now = Date.now();
@@ -18,7 +19,7 @@ describe('test/helper.test.js', function() {
       }
     };
 
-    return _.waitForCondition(sampleFn, 500, 100).should.be.fulfilled();
+    return _.waitForCondition(sampleFn, 500, 100);
   });
 
   it('wait for condition unsuccessfully', function *() {
@@ -28,7 +29,10 @@ describe('test/helper.test.js', function() {
       });
     };
 
-    return _.waitForCondition(sampleFn, 100, 500).should.be.rejected();
+    return _.waitForCondition(sampleFn, 100, 500).then(
+      () => new Error('not rejected'),
+      err => assert.ok(err)
+    );
   });
 
   it('wait for condition returning false', function *() {
@@ -38,6 +42,9 @@ describe('test/helper.test.js', function() {
       });
     };
 
-    return _.waitForCondition(sampleFn, 100, 500).should.be.rejected();
+    return _.waitForCondition(sampleFn, 100, 500).then(
+      () => new Error('not rejected'),
+      err => assert.ok(err)
+    );
   });
 });
