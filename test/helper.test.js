@@ -22,7 +22,7 @@ describe('test/helper.test.js', function() {
     return _.waitForCondition(sampleFn, 500, 100);
   });
 
-  it('wait for condition unsuccessfully', function *() {
+  it('wait for condition unsuccessfully', function * () {
     const sampleFn = () => {
       return new Promise(function(_, rej) {
         rej(false);
@@ -35,7 +35,7 @@ describe('test/helper.test.js', function() {
     );
   });
 
-  it('wait for condition returning false', function *() {
+  it('wait for condition returning false', function * () {
     const sampleFn = () => {
       return new Promise(function(res, _) {
         res(false);
