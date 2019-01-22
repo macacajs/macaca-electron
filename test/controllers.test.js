@@ -3,7 +3,7 @@
 const path = require('path');
 const assert = require('assert');
 
-const errors = require('webdriver-dfn-error-code').errors;
+const { errors } = require('webdriver-dfn-error-code');
 const _ = require('../lib/helper');
 const Electron = require('../lib/macaca-electron');
 
