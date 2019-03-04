@@ -34,6 +34,10 @@ This project follows the git-contributor [spec](https://github.com/xudafeng/git-
 $ npm i macaca-electron -g
 ```
 
+## Environment Variable
+
+set `MACACA_ELECTRON_DEVTOOLS=true` to open the devtools.
+
 ## Notice
 
 ### window.alert
