@@ -15,7 +15,6 @@ describe('test/controllers.test.js', function() {
   this.timeout(5 * 60 * 1000);
 
   describe('methods testing', function() {
-
     var driver = new Electron();
     var customUserAgent = 'custom userAgent';
 
@@ -30,7 +29,7 @@ describe('test/controllers.test.js', function() {
       yield driver.get(`file://${path.resolve(__dirname, 'webpages/1.html')}`);
       yield driver.maximize();
       var html = yield driver.getSource();
-      assert(html.includes(('<html')));
+      assert(html.includes('<html'));
     });
 
     it('execute ok', function * () {
@@ -51,7 +50,9 @@ describe('test/controllers.test.js', function() {
       try {
         yield driver.forward();
       } catch (e) {
-        f = () => { throw e; };
+        f = () => {
+          throw e;
+        };
       } finally {
         assert.throws(f, errors.NotImplementedError);
       }
@@ -86,7 +87,9 @@ describe('test/controllers.test.js', function() {
         // need to wait for 5 seconds timeout
         yield driver.findElement('id', 'non-existent');
       } catch (e) {
-        f = () => { throw e; };
+        f = () => {
+          throw e;
+        };
       } finally {
         assert.throws(f, errors.NoSuchElement);
       }
@@ -117,7 +120,10 @@ describe('test/controllers.test.js', function() {
       var buttonIsDiaplayed = yield driver.isDisplayed(button.ELEMENT);
       assert.equal(buttonIsDiaplayed, true);
 
-      var bgColor = yield driver.getComputedCss(button.ELEMENT, 'background-color');
+      var bgColor = yield driver.getComputedCss(
+        button.ELEMENT,
+        'background-color'
+      );
       assert.equal(bgColor, 'rgb(255, 255, 255)');
     });
 
@@ -189,7 +195,9 @@ describe('test/controllers.test.js', function() {
       try {
         yield driver.setFrame(123);
       } catch (e) {
-        f = () => { throw e; };
+        f = () => {
+          throw e;
+        };
       } finally {
         assert.throws(f, errors.NoSuchFrame);
       }
@@ -198,7 +206,9 @@ describe('test/controllers.test.js', function() {
       try {
         yield driver.setFrame('123');
       } catch (e) {
-        g = () => { throw e; };
+        g = () => {
+          throw e;
+        };
       } finally {
         assert.throws(g, errors.NoSuchFrame);
       }
@@ -234,9 +244,30 @@ describe('test/controllers.test.js', function() {
       assert.equal(cookies.length, 0);
     });
 
+    it('cookie persists across gets', function * () {
+      yield driver.get('https://www.baidu.com');
+      const cookie = {
+        url: 'https://www.baidu.com',
+        domain: '.baidu.com',
+        name: pkg.name,
+        value: pkg.name,
+        expirationDate: 253375862400
+      };
+      yield driver.addCookie(cookie);
+      let res = yield driver.getNamedCookie(cookie.name);
+      assert.equal(res.length, 1);
+      yield driver.get('https://www.baidu.com');
+      res = yield driver.getNamedCookie(cookie.name);
+      assert.equal(res.length, 1);
+    });
+
+    it('clears local storage', function * () {
+      yield driver.get('https://www.baidu.com');
+      yield driver.clearLocalstorage();
+    });
+
     after(function * () {
       yield driver.stopDevice();
     });
-
   });
 });
