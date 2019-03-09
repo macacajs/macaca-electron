@@ -244,7 +244,7 @@ describe('test/controllers.test.js', function() {
       assert.equal(cookies.length, 0);
     });
 
-    it('cookie persists across gets', function * () {
+    it('cookie does not persists across gets by default', function * () {
       yield driver.get('https://www.baidu.com');
       const cookie = {
         url: 'https://www.baidu.com',
@@ -254,10 +254,23 @@ describe('test/controllers.test.js', function() {
         expirationDate: 253375862400
       };
       yield driver.addCookie(cookie);
-      let res = yield driver.getNamedCookie(cookie.name);
-      assert.equal(res.length, 1);
       yield driver.get('https://www.baidu.com');
-      res = yield driver.getNamedCookie(cookie.name);
+      const res = yield driver.getNamedCookie(cookie.name);
+      assert.equal(res.length, 0);
+    });
+
+    it('cookie persists across gets with preserveCookies', function * () {
+      yield driver.get('https://www.baidu.com', { preserveCookies: true });
+      const cookie = {
+        url: 'https://www.baidu.com',
+        domain: '.baidu.com',
+        name: pkg.name,
+        value: pkg.name,
+        expirationDate: 253375862400
+      };
+      yield driver.addCookie(cookie);
+      yield driver.get('https://www.baidu.com', { preserveCookies: true });
+      const res = yield driver.getNamedCookie(cookie.name);
       assert.equal(res.length, 1);
     });
 

@@ -78,6 +78,7 @@ co(function *() {
   yield electron.maximize();
   yield electron.setWindowSize(null, 500, 500);
   yield electron.get('https://www.baidu.com');
+  // yield driver.get('https://www.baidu.com', { preserveCookies: true });
   const imgData = yield electron.getScreenshot();
   const img = new Buffer(imgData, 'base64');
   const p = path.join(__dirname, '..', 'screenshot.png')
