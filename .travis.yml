@@ -11,6 +11,9 @@ install:
 sudo: false
 script:
   - npm i
-  - npm run ci
+  - npm run doc
+  - $(npm bin)/macaca-ecosystem push --cwd ./docs --branch gh-pages
+  - npm run lint
+  - npm run test
 after_script:
   - npm install coveralls@2 && cat ./coverage/lcov.info | coveralls

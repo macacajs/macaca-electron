@@ -28,6 +28,7 @@
     "git-contributor": "^1.0.7",
     "husky": "^1.3.1",
     "jsdoc": "^3.4.0",
+    "macaca-ecosystem": "^1.0.15",
     "minami": "^1.1.1",
     "mocha": "^4.0.1",
     "nyc": "^13.1.0"
@@ -37,7 +38,6 @@
     "lint": "eslint --ext js,jsx --fix lib test",
     "doc": "npm run clean && jsdoc -c ./jsdoc.json",
     "clean": "rm -rf ./docs",
-    "ci": "npm run lint && npm run test",
     "contributor": "git-contributor"
   },
   "husky": {
