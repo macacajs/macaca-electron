@@ -1,6 +1,6 @@
 {
   "name": "macaca-electron",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "macaca electron driver",
   "keywords": [
     "electron",
@@ -15,7 +15,7 @@
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "^2.0.3",
     "driver-base": "^0.1.0",
-    "electron": "^2.0.15",
+    "electron": "^4.1.1",
     "eslint": "^4.5.0",
     "eslint-plugin-mocha": "^4.11.0",
     "macaca-utils": "~1.0.0",
