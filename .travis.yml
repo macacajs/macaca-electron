@@ -1,28 +1,21 @@
-language: node_js
-node_js:
-  - 8
-addons:
-  apt:
-    packages:
-      - xvfb
-install:
-  - /sbin/start-stop-daemon \
-    --start \
-    --quiet \
-    --pidfile /tmp/custom_xvfb_99.pid \
-    --make-pidfile \
-    --background \
-    --exec /usr/bin/Xvfb \
-    -- :99 -ac -screen 0 1280x1024x16
-  - export DISPLAY=':99.0'
-  - sh -e /etc/init.d/xvfb start;
-  - sleep 3;
 sudo: false
+
+language: node_js
+
+services:
+  - docker
+
+node_js:
+  - '8'
+
+install:
+  - npm i
+
 script:
   - npm i
   - npm run doc
   - $(npm bin)/macaca-ecosystem push --cwd ./docs --branch gh-pages
   - npm run lint
-  - npm run test
+  - docker run -it --entrypoint=bash -v `pwd`:/root/tmp --rm macacajs/macaca-electron-docker-ubuntu -c "cd /root/tmp && ./test/ci.sh"
 after_script:
   - npm install coveralls@2 && cat ./coverage/lcov.info | coveralls

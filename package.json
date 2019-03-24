@@ -15,7 +15,7 @@
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "^2.0.3",
     "driver-base": "^0.1.0",
-    "electron": "3",
+    "electron": "5",
     "eslint": "^4.5.0",
     "eslint-plugin-mocha": "^4.11.0",
     "macaca-utils": "~1.0.0",
