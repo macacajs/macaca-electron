@@ -5,5 +5,3 @@ export DISPLAY=:9.0
 sleep 3
 
 npm run test
-
-npm install coveralls@2 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
