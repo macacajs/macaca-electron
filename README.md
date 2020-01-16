@@ -34,6 +34,15 @@ This project follows the git-contributor [spec](https://github.com/xudafeng/git-
 $ npm i macaca-electron -g
 ```
 
+## Release Plan
+
+Simply put, Chromium doesn't stop shipping so Electron is not going to slow down either, so Macaca is not stop...
+
+Starting with Electron version 7, Macaca will always upgrade with the Electron's main version.
+
+- [12-week-cadence](https://electronjs.org/blog/12-week-cadence)
+- [releases/stable](https://electronjs.org/releases/stable)
+
 ## Environment Variable
 
 set `MACACA_ELECTRON_DEVTOOLS=true` to open the devtools.
@@ -48,45 +57,44 @@ Macaca disables `window.alert`, `window.prompt`, `window.confirm` from popping u
 
 ```javascript
 
-const co = require('co');
 const fs = require('fs');
 const path = require('path');
 const Electron = require('macaca-electron');
 
 const electron = new Electron();
 
-co(function *() {
-  /**
-    default options
-    {
-      show: true,
-      alwaysOnTop: false,
-      x: 0,
-      y: 0,
-      width: 800,
-      height: 600,
-      userAgent: 'userAgent string',
-      webPreferences: {
-        nodeIntegration: false
-      }
+/**
+  default options
+  {
+    show: true,
+    alwaysOnTop: false,
+    x: 0,
+    y: 0,
+    width: 800,
+    height: 600,
+    userAgent: 'userAgent string',
+    webPreferences: {
+      nodeIntegration: false
     }
-  */
-  yield electron.startDevice({
+  }
+*/
+async () => {
+  await electron.startDevice({
     show: false // in silence
   });
 
-  yield electron.maximize();
-  yield electron.setWindowSize(null, 500, 500);
-  yield electron.get('https://www.baidu.com');
+  await electron.maximize();
+  await electron.setWindowSize(null, 500, 500);
+  await electron.get('https://www.baidu.com');
   // yield driver.get('https://www.baidu.com', { preserveCookies: true });
-  const imgData = yield electron.getScreenshot();
+  const imgData = await electron.getScreenshot();
   const img = new Buffer(imgData, 'base64');
   const p = path.join(__dirname, '..', 'screenshot.png')
   fs.writeFileSync(p, img.toString('binary'), 'binary');
   console.log(`screenshot: ${p}`);
 
-  yield electron.stopDevice();
-});
+  await electron.stopDevice();
+};
 
 ```
 

@@ -16,8 +16,8 @@ describe('test/macaca-electron.test.js', function() {
     var driver = new Electron();
     var customUserAgent = 'custom userAgent';
 
-    before(function * () {
-      yield driver.startDevice({
+    before(async () => {
+      await driver.startDevice({
         show: false,
         userAgent: customUserAgent
       });
@@ -43,8 +43,8 @@ describe('test/macaca-electron.test.js', function() {
       assert.equal(isProxy, false);
     });
 
-    after(function * () {
-      yield driver.stopDevice();
+    after(async () => {
+      await driver.stopDevice();
     });
 
   });
