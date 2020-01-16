@@ -6,4 +6,4 @@ sleep 3
 
 npm run test
 
-npm install coveralls@2 && cat ./coverage/lcov.info | coveralls
+npm install coveralls@2 && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
