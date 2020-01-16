@@ -7,7 +7,7 @@ const { errors } = require('webdriver-dfn-error-code');
 const _ = require('../lib/helper');
 const Electron = require('../lib/macaca-electron');
 
-// const pkg = require('../package');
+const pkg = require('../package');
 
 describe('test/controllers.test.js', function() {
   const WIDTH = 600;
@@ -188,92 +188,115 @@ describe('test/controllers.test.js', function() {
       assert.ok(link);
     });
 
-    // it('set frame that does not exist', async () => {
-    //   await driver.get(`file://${path.resolve(__dirname, 'webpages/4.html')}`);
+    it('set frame that does not exist', async () => {
+      await driver.get(`file://${path.resolve(__dirname, 'webpages/4.html')}`);
 
-    //   let f = () => {};
-    //   try {
-    //     await driver.setFrame(123);
-    //   } catch (e) {
-    //     f = () => {
-    //       throw e;
-    //     };
-    //   } finally {
-    //     assert.throws(f, errors.NoSuchFrame);
-    //   }
+      let f = () => {};
+      try {
+        await driver.setFrame(123);
+      } catch (e) {
+        f = () => {
+          throw e;
+        };
+      } finally {
+        assert.throws(f, errors.NoSuchFrame);
+      }
 
-    //   let g = () => {};
-    //   try {
-    //     await driver.setFrame('123');
-    //   } catch (e) {
-    //     g = () => {
-    //       throw e;
-    //     };
-    //   } finally {
-    //     console.log(g);
-    //     // assert.throws(g, errors.NoSuchFrame);
-    //   }
-    // });
+      // TODO: fix cannot use Object.setPrototypeOf twice in errors.NoSuchFrame()
+      // let g = () => {};
+      // try {
+      //   await driver.setFrame('123');
+      // } catch (e) {
+      //   g = () => {
+      //     throw e;
+      //   };
+      // } finally {
+      //   console.log(g);
+      //   assert.throws(g, errors.NoSuchFrame);
+      // }
+    });
 
-    // it('cookie handlers', async () => {
-    //   await driver.deleteAllCookies();
-    //   var cookies = await driver.getAllCookies();
-    //   assert.equal(cookies.length, 0);
-    //   var cookie = {
-    //     url: pkg.homepage,
-    //     name: pkg.name,
-    //     value: pkg.name
-    //   };
-    //   await driver.addCookie(cookie);
-    //   const res = await driver.getNamedCookie(cookie.name);
-    //   assert.equal(res.length, 1);
+    it('cookie handlers', async () => {
+      await driver.deleteAllCookies();
+      var cookies = await driver.getAllCookies();
+      assert.equal(cookies.length, 0);
+      var cookie = {
+        url: pkg.homepage,
+        name: pkg.name,
+        value: pkg.name
+      };
+      await driver.addCookie(cookie);
+      const res = await driver.getNamedCookie(cookie.name);
+      assert.equal(res.length, 1);
 
-    //   var cookie2 = {
-    //     url: pkg.homepage,
-    //     name: 'cookie-test',
-    //     value: 'cookie-test'
-    //   };
-    //   await driver.addCookie(cookie2);
-    //   cookies = await driver.getAllCookies();
-    //   assert.equal(cookies.length, 2);
-    //   await driver.deleteCookie('cookie-test');
-    //   cookies = await driver.getAllCookies();
-    //   // failing due to a bug
-    //   // assert.equal(cookies.length, 1);
-    //   await driver.deleteAllCookies();
-    //   cookies = await driver.getAllCookies();
-    //   assert.equal(cookies.length, 0);
-    // });
+      var cookie2 = {
+        url: pkg.homepage,
+        name: 'cookie-test',
+        value: 'cookie-test'
+      };
+      await driver.addCookie(cookie2);
+      cookies = await driver.getAllCookies();
+      assert.equal(cookies.length, 2);
+      await driver.deleteCookie('cookie-test', pkg.homepage);
+      cookies = await driver.getAllCookies();
+      assert.equal(cookies.length, 1);
+      await driver.deleteAllCookies();
+      cookies = await driver.getAllCookies();
+      assert.equal(cookies.length, 0);
+    });
 
-    // it('cookie does not persists across gets by default', async () => {
-    //   await driver.get('https://www.baidu.com');
-    //   const cookie = {
-    //     url: 'https://www.baidu.com',
-    //     domain: '.baidu.com',
-    //     name: pkg.name,
-    //     value: pkg.name,
-    //     expirationDate: 253375862400
-    //   };
-    //   await driver.addCookie(cookie);
-    //   await driver.get('https://www.baidu.com');
-    //   const res = await driver.getNamedCookie(cookie.name);
-    //   assert.equal(res.length, 0);
-    // });
+    it('cookie handlers legacy deleteCookie behaviour', async () => {
+      await driver.deleteAllCookies();
+      let cookies;
+      var cookie = {
+        url: pkg.homepage,
+        name: pkg.name,
+        value: pkg.name
+      };
+      await driver.addCookie(cookie);
+      var cookie2 = {
+        url: pkg.homepage,
+        name: 'cookie-test',
+        value: 'cookie-test'
+      };
+      await driver.addCookie(cookie2);
+      cookies = await driver.getAllCookies();
+      assert.equal(cookies.length, 2);
+      await driver.deleteCookie('cookie-test');
+      cookies = await driver.getAllCookies();
+      // old deleteCookie takes 1 argument and deletes all cookies
+      assert.equal(cookies.length, 0);
+    });
 
-    // it('cookie persists across gets with preserveCookies', async () => {
-    //   await driver.get('https://www.baidu.com', { preserveCookies: true });
-    //   const cookie = {
-    //     url: 'https://www.baidu.com',
-    //     domain: '.baidu.com',
-    //     name: pkg.name,
-    //     value: pkg.name,
-    //     expirationDate: 253375862400
-    //   };
-    //   await driver.addCookie(cookie);
-    //   await driver.get('https://www.baidu.com', { preserveCookies: true });
-    //   const res = await driver.getNamedCookie(cookie.name);
-    //   assert.equal(res.length, 1);
-    // });
+    it('cookie does not persists across gets by default', async () => {
+      await driver.get('https://www.baidu.com');
+      const cookie = {
+        url: 'https://www.baidu.com',
+        domain: '.baidu.com',
+        name: pkg.name,
+        value: pkg.name,
+        expirationDate: 253375862400
+      };
+      await driver.addCookie(cookie);
+      await driver.get('https://www.baidu.com');
+      const res = await driver.getNamedCookie(cookie.name);
+      assert.equal(res.length, 0);
+    });
+
+    it('cookie persists across gets with preserveCookies', async () => {
+      await driver.get('https://www.baidu.com', { preserveCookies: true });
+      const cookie = {
+        url: 'https://www.baidu.com',
+        domain: '.baidu.com',
+        name: pkg.name,
+        value: pkg.name,
+        expirationDate: 253375862400
+      };
+      await driver.addCookie(cookie);
+      await driver.get('https://www.baidu.com', { preserveCookies: true });
+      const res = await driver.getNamedCookie(cookie.name);
+      assert.equal(res.length, 1);
+    });
 
     it('clears local storage', async () => {
       await driver.get('https://www.baidu.com');
