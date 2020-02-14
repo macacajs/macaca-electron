@@ -58,7 +58,7 @@ Macaca disables `window.alert`, `window.prompt`, `window.confirm` from popping u
 ```javascript
 const fs = require('fs');
 const path = require('path');
-const Electron = require('./lib/macaca-electron');
+const Electron = require('macaca-electron');
 
 const electron = new Electron();
 
