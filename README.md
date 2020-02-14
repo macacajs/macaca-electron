@@ -56,10 +56,9 @@ Macaca disables `window.alert`, `window.prompt`, `window.confirm` from popping u
 ## Standalone usage
 
 ```javascript
-
 const fs = require('fs');
 const path = require('path');
-const Electron = require('macaca-electron');
+const Electron = require('./lib/macaca-electron');
 
 const electron = new Electron();
 
@@ -78,24 +77,24 @@ const electron = new Electron();
     }
   }
 */
-async () => {
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+(async () => {
   await electron.startDevice({
     show: false // in silence
   });
-
   await electron.maximize();
   await electron.setWindowSize(null, 500, 500);
   await electron.get('https://www.baidu.com');
-  // yield driver.get('https://www.baidu.com', { preserveCookies: true });
+  await sleep(3000);
   const imgData = await electron.getScreenshot();
-  const img = new Buffer(imgData, 'base64');
-  const p = path.join(__dirname, '..', 'screenshot.png')
+  const img = Buffer.from(imgData, 'base64');
+  const p = path.join('screenshot.png');
   fs.writeFileSync(p, img.toString('binary'), 'binary');
   console.log(`screenshot: ${p}`);
 
   await electron.stopDevice();
-};
-
+})();
 ```
 
 - [sample macaca-electron-screenshot](//github.com/macaca-sample/macaca-electron-screenshot)
