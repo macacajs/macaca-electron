@@ -45,7 +45,7 @@ Starting with Electron version 7, Macaca will always upgrade with the Electron's
 
 ## Environment Variable
 
-set `MACACA_ELECTRON_DEVTOOLS=true` to open the devtools.
+set `MACACA_ELECTRON_DEVTOOLS=1` to open the devtools.
 
 ## Notice
 
