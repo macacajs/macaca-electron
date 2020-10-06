@@ -15,7 +15,7 @@
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
     "driver-base": "^0.1.0",
-    "electron": "9.2.0",
+    "electron": "10.1.3",
     "macaca-utils": "~1.0.0",
     "selenium-atoms": "~1.0.4",
     "webdriver-dfn-error-code": "^1.0.3",
