@@ -100,7 +100,6 @@ describe('test/controllers.test.js', function() {
       assert.equal(divs.length, 2);
       var input = await driver.findElements('id', 'input');
       assert.equal(input.length, 1);
-      // need to wait for 5 seconds timeout
       var nonExistent = await driver.findElements('id', 'non-existent');
       assert.equal(nonExistent.length, 0);
     });
