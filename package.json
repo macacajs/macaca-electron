@@ -1,6 +1,6 @@
 {
   "name": "macaca-electron",
-  "version": "9.0.3",
+  "version": "11.0.0",
   "description": "macaca electron driver",
   "keywords": [
     "electron",
@@ -15,7 +15,7 @@
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
     "driver-base": "^0.1.0",
-    "electron": "9.2.0",
+    "electron": "11.3.0",
     "macaca-utils": "~1.0.0",
     "selenium-atoms": "~1.0.4",
     "webdriver-dfn-error-code": "^1.0.3",
