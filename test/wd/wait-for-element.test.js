@@ -16,7 +16,7 @@ describe('./test/wd/wait-for-element.test.js', function() {
       .init({
         platformName: 'desktop',
         browserName: 'electron',
-        userAgent: `Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0 Safari/537.36 Macaca Custom UserAgent`,
+        userAgent: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0 Safari/537.36 Macaca Custom UserAgent',
         deviceScaleFactor: 2
       })
       .setWindowSize(800, 600);
@@ -25,7 +25,7 @@ describe('./test/wd/wait-for-element.test.js', function() {
   afterEach(function() {
     return driver
       .customSaveScreenshot(this)
-      .sleep(1000)
+      .sleep(1000);
   });
 
   after(() => {
