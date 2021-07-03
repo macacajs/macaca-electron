@@ -1,12 +1,15 @@
 # macaca-electron
 
 [![NPM version][npm-image]][npm-url]
+[![Package quality][quality-image]][quality-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![node version][node-image]][node-url]
 
 [npm-image]: https://img.shields.io/npm/v/macaca-electron.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/macaca-electron
+[quality-image]: https://packagequality.com/shield/macaca-electron.svg
+[quality-url]: https://packagequality.com/#?package=macaca-electron
 [travis-image]: https://img.shields.io/travis/macacajs/macaca-electron.svg?style=flat-square
 [travis-url]: https://travis-ci.org/macacajs/macaca-electron
 [coveralls-image]: https://img.shields.io/coveralls/macacajs/macaca-electron.svg?style=flat-square
