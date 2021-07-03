@@ -1,17 +1,20 @@
 # macaca-electron
 
 [![NPM version][npm-image]][npm-url]
+[![Package quality][quality-image]][quality-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![node version][node-image]][node-url]
 
-[npm-image]: https://img.shields.io/npm/v/macaca-electron.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/macaca-electron.svg
 [npm-url]: https://npmjs.org/package/macaca-electron
-[travis-image]: https://img.shields.io/travis/macacajs/macaca-electron.svg?style=flat-square
+[quality-image]: https://packagequality.com/shield/macaca-electron.svg
+[quality-url]: https://packagequality.com/#?package=macaca-electron
+[travis-image]: https://img.shields.io/travis/macacajs/macaca-electron.svg
 [travis-url]: https://travis-ci.org/macacajs/macaca-electron
-[coveralls-image]: https://img.shields.io/coveralls/macacajs/macaca-electron.svg?style=flat-square
+[coveralls-image]: https://img.shields.io/coveralls/macacajs/macaca-electron.svg
 [coveralls-url]: https://coveralls.io/r/macacajs/macaca-electron?branch=master
-[node-image]: https://img.shields.io/badge/node.js-%3E=_7-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_7-green.svg
 [node-url]: http://nodejs.org/download/
 
 > macaca electron driver
@@ -20,11 +23,11 @@
 
 ## Contributors
 
-|[<img src="https://avatars.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars.githubusercontent.com/u/1209810?v=4" width="100px;"/><br/><sub><b>paradite</b></sub>](https://github.com/paradite)<br/>|[<img src="https://avatars.githubusercontent.com/u/4006436?v=4" width="100px;"/><br/><sub><b>meowtec</b></sub>](https://github.com/meowtec)<br/>|[<img src="https://avatars.githubusercontent.com/u/1044425?v=4" width="100px;"/><br/><sub><b>ziczhu</b></sub>](https://github.com/ziczhu)<br/>|[<img src="https://avatars.githubusercontent.com/u/43984518?v=4" width="100px;"/><br/><sub><b>xianxiaow</b></sub>](https://github.com/xianxiaow)<br/>|[<img src="https://avatars.githubusercontent.com/u/252317?v=4" width="100px;"/><br/><sub><b>cyjake</b></sub>](https://github.com/cyjake)<br/>|
+|[<img src="https://avatars.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars.githubusercontent.com/u/1209810?v=4" width="100px;"/><br/><sub><b>paradite</b></sub>](https://github.com/paradite)<br/>|[<img src="https://avatars.githubusercontent.com/u/4006436?v=4" width="100px;"/><br/><sub><b>meowtec</b></sub>](https://github.com/meowtec)<br/>|[<img src="https://avatars.githubusercontent.com/u/1044425?v=4" width="100px;"/><br/><sub><b>ziczhu</b></sub>](https://github.com/ziczhu)<br/>|[<img src="https://avatars.githubusercontent.com/u/43984518?v=4" width="100px;"/><br/><sub><b>xianxiaow</b></sub>](https://github.com/xianxiaow)<br/>|[<img src="https://avatars.githubusercontent.com/u/10104168?v=4" width="100px;"/><br/><sub><b>yihuineng</b></sub>](https://github.com/yihuineng)<br/>|
 | :---: | :---: | :---: | :---: | :---: | :---: |
-[<img src="https://avatars.githubusercontent.com/u/1487773?v=4" width="100px;"/><br/><sub><b>coffeedeveloper</b></sub>](https://github.com/coffeedeveloper)<br/>|[<img src="https://avatars.githubusercontent.com/u/4575751?v=4" width="100px;"/><br/><sub><b>jacksonlai</b></sub>](https://github.com/jacksonlai)<br/>
+[<img src="https://avatars.githubusercontent.com/u/252317?v=4" width="100px;"/><br/><sub><b>cyjake</b></sub>](https://github.com/cyjake)<br/>|[<img src="https://avatars.githubusercontent.com/u/1487773?v=4" width="100px;"/><br/><sub><b>coffeedeveloper</b></sub>](https://github.com/coffeedeveloper)<br/>|[<img src="https://avatars.githubusercontent.com/u/4575751?v=4" width="100px;"/><br/><sub><b>jacksonlai</b></sub>](https://github.com/jacksonlai)<br/>
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Mon Mar 08 2021 15:57:43 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Fri Dec 03 2021 17:39:03 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 
