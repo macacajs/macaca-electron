@@ -27,7 +27,7 @@
 | :---: | :---: | :---: | :---: | :---: | :---: |
 [<img src="https://avatars.githubusercontent.com/u/1487773?v=4" width="100px;"/><br/><sub><b>coffeedeveloper</b></sub>](https://github.com/coffeedeveloper)<br/>|[<img src="https://avatars.githubusercontent.com/u/4575751?v=4" width="100px;"/><br/><sub><b>jacksonlai</b></sub>](https://github.com/jacksonlai)<br/>
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Mon Mar 08 2021 15:57:43 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Fri Dec 03 2021 15:02:58 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 
