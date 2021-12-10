@@ -7,6 +7,9 @@
     "macaca",
     "chromium"
   ],
+  "files": [
+    "lib/**/*.js"
+  ],
   "main": "./lib/macaca-electron.js",
   "repository": {
     "type": "git",
