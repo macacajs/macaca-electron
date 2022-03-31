@@ -1,6 +1,6 @@
 {
   "name": "macaca-electron",
-  "version": "13.0.2",
+  "version": "17.0.0",
   "description": "macaca electron driver",
   "keywords": [
     "electron",
@@ -20,15 +20,15 @@
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
     "driver-base": "^0.1.0",
-    "electron": "13.6.9",
+    "electron": "17.2.0",
     "lodash": "^4.17.21",
-    "macaca-utils": "~1.0.0",
+    "macaca-utils": "1",
     "selenium-atoms": "~1.0.4",
     "webdriver-dfn-error-code": "^1.0.3",
     "xlogger": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "6",
+    "eslint": "7",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-mocha": "^4.11.0",
     "git-contributor": "1",
