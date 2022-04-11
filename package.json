@@ -1,7 +1,7 @@
 {
   "name": "macaca-electron",
-  "version": "17.2.0",
-  "description": "macaca electron driver",
+  "version": "18.0.0",
+  "description": "Macaca Electron driver",
   "keywords": [
     "electron",
     "macaca",
@@ -20,7 +20,7 @@
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
     "driver-base": "^0.1.0",
-    "electron": "17.4.1",
+    "electron": "18.2.10",
     "lodash": "^4.17.21",
     "macaca-utils": "1",
     "selenium-atoms": "~1.0.4",
