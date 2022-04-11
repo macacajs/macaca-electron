@@ -1,6 +1,6 @@
 {
   "name": "macaca-electron",
-  "version": "17.0.0",
+  "version": "17.0.1",
   "description": "macaca electron driver",
   "keywords": [
     "electron",
@@ -16,6 +16,7 @@
     "url": "https://github.com/macacajs/macaca-electron"
   },
   "dependencies": {
+    "@electron/remote": "^2.0.8",
     "buffer": "^6.0.3",
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
@@ -25,7 +26,7 @@
     "macaca-utils": "1",
     "selenium-atoms": "~1.0.4",
     "webdriver-dfn-error-code": "^1.0.3",
-    "xlogger": "^1.0.0"
+    "xlogger": "1"
   },
   "devDependencies": {
     "eslint": "7",
