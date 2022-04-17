@@ -19,11 +19,16 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '16'
+ d
+    - name: Install dependencies
+      run: |
+        npm i npm@6 -g
+        npm i
 
     - name: Continuous integration
-      run:
-      - npm run lint
-      - docker run -it --entrypoint=bash -v `pwd`:/root/tmp --rm electronuserland/builder:wine-chrome -c "cd /root/tmp && ./test/ci.sh"
+      run: |
+        npm run lint
+        docker run -it --entrypoint=bash -v `pwd`:/root/tmp --rm electronuserland/builder:wine-chrome -c "cd /root/tmp && ./test/ci.sh"
 
     - name: Code coverage
       uses: codecov/codecov-action@v3.0.0
