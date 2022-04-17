@@ -25,7 +25,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm i npm@6 -g
           npm install jsdoc -D
           npm install minami -D
 
