@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - "**"
+
+jobs:
+  Runner:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout git source
+      uses: actions/checkout@v3
+
+    - name: Setup node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Continuous integration
+      run:
+      - npm run lint
+      - docker run -it --entrypoint=bash -v `pwd`:/root/tmp --rm electronuserland/builder:wine-chrome -c "cd /root/tmp && ./test/ci.sh"
+
+    - name: Code coverage
+      uses: codecov/codecov-action@v3.0.0
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
