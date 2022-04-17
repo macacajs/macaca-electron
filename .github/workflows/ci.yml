@@ -27,7 +27,6 @@ jobs:
 
     - name: Continuous integration
       run: |
-        npm run lint
         docker run -it --entrypoint=bash -v `pwd`:/root/tmp --rm electronuserland/builder:wine-chrome -c "cd /root/tmp && ./test/ci.sh"
 
     - name: Code coverage
