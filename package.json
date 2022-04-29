@@ -1,6 +1,6 @@
 {
   "name": "macaca-electron",
-  "version": "17.0.2",
+  "version": "17.1.0",
   "description": "macaca electron driver",
   "keywords": [
     "electron",
@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@electron/remote": "^2.0.8",
-    "buffer": "^6.0.3",
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
     "driver-base": "^0.1.0",
