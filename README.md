@@ -17,7 +17,7 @@
 [node-image]: https://img.shields.io/badge/node.js-%3E=_7-green.svg
 [node-url]: http://nodejs.org/download/
 
-> macaca electron driver
+> Macaca Electron driver
 
 <!-- GITCONTRIBUTOR_START -->
 
