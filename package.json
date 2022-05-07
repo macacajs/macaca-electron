@@ -16,6 +16,7 @@
     "url": "https://github.com/macacajs/macaca-electron"
   },
   "dependencies": {
+    "@electron/remote": "2",
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
     "driver-base": "^0.1.0",
