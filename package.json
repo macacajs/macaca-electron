@@ -16,11 +16,10 @@
     "url": "https://github.com/macacajs/macaca-electron"
   },
   "dependencies": {
-    "@electron/remote": "^2.0.8",
     "co": "^4.6.0",
     "datahub-nodejs-sdk": "2",
     "driver-base": "^0.1.0",
-    "electron": "18.2.10",
+    "electron": "18.2.0",
     "lodash": "^4.17.21",
     "macaca-utils": "1",
     "selenium-atoms": "~1.0.4",
@@ -36,7 +35,7 @@
     "jsdoc": "^3.4.0",
     "macaca-wd": "3",
     "minami": "^1.1.1",
-    "mocha": "^4.0.1",
+    "mocha": "5",
     "nyc": "^13.1.0"
   },
   "scripts": {
